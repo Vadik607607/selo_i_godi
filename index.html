@@ -191,12 +191,7 @@
 
   <div class="modal" id="orderModal">
     <iframe src="https://novaposhta.ua/map" width="100%" height="400" style="border:0; border-radius: 8px; margin-bottom: 1rem;"></iframe>
-    <div id="mapLinks" style="margin-top: 1rem;">
-      <p><strong>📍 Швидкий вибір відділення:</strong></p>
-      <button type="button" onclick="setNP('Київ', '12')">Київ — Відділення №12</button>
-      <button type="button" onclick="setNP('Львів', '3')">Львів — Відділення №3</button>
-      <button type="button" onclick="setNP('Харків', '9')">Харків — Відділення №9</button>
-    </div>
+    
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3>Оформлення замовлення</h3>
@@ -205,15 +200,7 @@
         <input type="text" name="name" placeholder="Ваше ім’я" required>
         <input type="tel" name="phone" placeholder="Номер телефону" required>
         <input type="number" name="quantity" placeholder="Кількість (кг)" required min="1">
-        <select id="city" name="city" required>
-          <option value="">Оберіть місто</option>
-          <option value="Київ">Київ</option>
-          <option value="Львів">Львів</option>
-          <option value="Харків">Харків</option>
-        </select>
-        <select id="branch" name="branch" required>
-          <option value="">Оберіть відділення</option>
-        </select>
+        <input type="text" name="address" placeholder="Адреса Нової Пошти (місто, відділення)" required>
         <textarea name="message" placeholder="Коментар (необов’язково)"></textarea>
         <button type="submit">Надіслати</button>
       </form>
@@ -240,28 +227,9 @@
         document.getElementById('orderModal').style.display = 'none';
       };
 
-      window.setNP = function(city, branch) {
-        const citySelect = document.getElementById('city');
-        const branchSelect = document.getElementById('branch');
-        citySelect.value = city;
-        citySelect.dispatchEvent(new Event('change'));
-        setTimeout(() => {
-          branchSelect.value = branch;
-        }, 100);
-      };
+      
 
-      document.getElementById('city').addEventListener('change', function () {
-        const branch = document.getElementById('branch');
-        const city = this.value;
-        branch.innerHTML = '<option value="">Оберіть відділення</option>';
-        if (city === 'Київ') {
-          branch.innerHTML += '<option value="1">Відділення №1</option><option value="12">Відділення №12</option>';
-        } else if (city === 'Львів') {
-          branch.innerHTML += '<option value="3">Відділення №3</option><option value="7">Відділення №7</option>';
-        } else if (city === 'Харків') {
-          branch.innerHTML += '<option value="5">Відділення №5</option><option value="9">Відділення №9</option>';
-        }
-      });
+      
 
       document.getElementById('orderForm').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -274,9 +242,7 @@
           alert(`Максимальна кількість для замовлення: ${max} кг`);
           return;
         }
-        const city = this.city.value;
-        const branch = this.branch.value;
-        const address = `м. ${city}, відділення ${branch}`;
+        const address = this.address.value;
         const comment = this.message.value;
 
         const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
