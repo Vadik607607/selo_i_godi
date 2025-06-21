@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>selo_i_godi — Натуральна свинина</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
       margin: 0;
@@ -63,6 +64,7 @@
       background: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
     .modal-content {
       background: #fff;
@@ -134,7 +136,26 @@
   <section id="products" class="section">
     <h2>Каталог</h2>
     <div class="products">
-      <!-- Продукти -->
+      <div class="product">
+        <img src="shyia.jpg" alt="Свиняча шия">
+        <h3>Свиняча шия</h3>
+        <p>Ціна: 210 грн/кг</p>
+        <button class="button" onclick="openModal('Свиняча шия', 5)">Замовити</button>
+      </div>
+
+      <div class="product">
+        <img src="salo.jpg" alt="Сало солене">
+        <h3>Сало солене</h3>
+        <p>Ціна: 170 грн/кг</p>
+        <button class="button" onclick="openModal('Сало солене', 3)">Замовити</button>
+      </div>
+
+      <div class="product">
+        <img src="rebro.jpg" alt="Свинячі ребра">
+        <h3>Свинячі ребра</h3>
+        <p>Ціна: 180 грн/кг</p>
+        <button class="button" onclick="openModal('Свинячі ребра', 4)">Замовити</button>
+      </div>
     </div>
   </section>
 
@@ -156,8 +177,8 @@
 
   <section id="contact" class="section">
     <h2>Контакти</h2>
-    <p>Телефон: +380 (00) 000-00-00<br>Email: info@seloigodi.ua</p>
-    <p>Instagram / TikTok: @selo_i_godi</p>
+    <p>Телефон: <a href="tel:+380000000000">+380 (00) 000-00-00</a><br>Email: <a href="mailto:info@seloigodi.ua">info@seloigodi.ua</a></p>
+    <p>Instagram / TikTok: <a href="https://instagram.com/selo_i_godi" target="_blank">@selo_i_godi</a></p>
   </section>
 
   <footer>
