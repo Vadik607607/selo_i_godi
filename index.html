@@ -45,17 +45,6 @@
       max-width: 100%;
       height: auto;
     }
-    .banner {
-      width: 100vw;
-      height: 100vh;
-      background-image: url('banner.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .button {
       display: inline-block;
       margin-top: 1rem;
@@ -115,25 +104,24 @@
       width: 200px;
       border-radius: 8px;
     }
-    h1.logo {
-      font-size: 2.5rem;
-      margin: 0;
+    .logo-img {
+      height: 60px;
+      max-width: 100%;
     }
     @media (max-width: 600px) {
-      h1.logo {
-        font-size: 1.8rem;
+      .logo-img {
+        height: 40px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="banner"></div>
-
   <header>
-    <h1 class="logo">selo_i_godi</h1>
+    <img src="logo.png" alt="selo_i_godi логотип" class="logo-img">
     <nav>
       <a href="#products">Каталог</a>
       <a href="#about">Про нас</a>
+      <a href="#delivery">Доставка і оплата</a>
       <a href="#contact">Контакти</a>
     </nav>
   </header>
@@ -146,38 +134,7 @@
   <section id="products" class="section">
     <h2>Каталог</h2>
     <div class="products">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Свиняча вирізка">
-        <h3>Свиняча вирізка</h3>
-        <p>Ніжна частина без кісток. Ідеально для запікання.</p>
-        <p><strong>Ціна:</strong> 180 грн/кг</p>
-        <p><strong>В наявності:</strong> 2 кг</p>
-        <button class="button" onclick="openModal('Свиняча вирізка', 25)" data-available="25">Купити</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Ребра свинні">
-        <h3>Свинячі ребра</h3>
-        <p>Соковиті реберця для грилю чи духовки.</p>
-        <p><strong>Ціна:</strong> 150 грн/кг</p>
-        <p><strong>В наявності:</strong> 30 кг</p>
-        <button class="button" onclick="openModal('Свинячі ребра', 30)" data-available="30">Купити</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Шия свинна">
-        <h3>Свиняча шия</h3>
-        <p>Мармурове м’ясо — ідеально для шашлику.</p>
-        <p><strong>Ціна:</strong> 190 грн/кг</p>
-        <p><strong>В наявності:</strong> 20 кг</p>
-        <button class="button" onclick="openModal('Свиняча шия', 20)" data-available="20">Купити</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Сало солене">
-        <h3>Сало солене</h3>
-        <p>Справжнє українське сало з сіллю та спеціями.</p>
-        <p><strong>Ціна:</strong> 100 грн/кг</p>
-        <p><strong>В наявності:</strong> 15 кг</p>
-        <button class="button" onclick="openModal('Сало солене', 15)" data-available="15">Купити</button>
-      </div>
+      <!-- Продукти -->
     </div>
   </section>
 
@@ -185,6 +142,16 @@
     <h2>Про нас</h2>
     <p><strong>selo_i_godi</strong> — це родинна ферма, що спеціалізується на вирощуванні свиней у природних умовах. Ми гарантуємо якість та безпеку нашого м’яса: жодних антибіотиків, гормонів чи штучних добавок. Усе — як для себе.</p>
     <p>Наша місія — зробити доступним натуральне м’ясо для кожної родини. Ми щодня працюємо над тим, щоб ви могли смакувати справжнє, свіжозабите м’ясо з українського села.</p>
+  </section>
+
+  <section id="delivery" class="section">
+    <h2>Доставка і оплата</h2>
+    <p>Ми здійснюємо доставку по всій Україні за допомогою служби Нова Пошта. Відправлення можливе протягом 1–2 робочих днів після підтвердження замовлення. Упаковка здійснюється з дотриманням усіх санітарних норм для збереження свіжості продукту.</p>
+    <p><strong>Способи оплати:</strong></p>
+    <ul>
+      <li>Онлайн-оплата на картку</li>
+    </ul>
+    <p>Вартість доставки оплачується покупцем згідно з тарифами перевізника.</p>
   </section>
 
   <section id="contact" class="section">
@@ -217,7 +184,7 @@
       document.getElementById('productName').value = productName;
       const quantityInput = document.getElementById('quantityInput');
       quantityInput.max = available;
-      quantityInput.placeholder = `Кількість (макс. ${available} кг)`;
+      quantityInput.placeholder = 'Кількість (кг)';
       document.getElementById('orderModal').style.display = 'flex';
     }
     function closeModal() {
