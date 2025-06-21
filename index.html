@@ -64,6 +64,7 @@
       cursor: pointer;
     }
     .modal {
+      align-items: flex-start;
       display: none;
       position: fixed;
       top: 0; left: 0;
@@ -74,6 +75,8 @@
       z-index: 1000;
     }
     .modal-content {
+      max-height: 90vh;
+      overflow-y: auto;
       background: #fff;
       padding: 2rem;
       max-width: 400px;
@@ -190,8 +193,6 @@
   </section>
 
   <div class="modal" id="orderModal">
-    <iframe src="https://novaposhta.ua/map" width="100%" height="400" style="border:0; border-radius: 8px; margin-bottom: 1rem;"></iframe>
-    
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3>Оформлення замовлення</h3>
