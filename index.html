@@ -4,15 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>selo_i_godi — Натуральна свинина</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
+      background-image: url('A_photograph_showcases_a_close-up_view_of_a_textur.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: #333;
     }
     header, footer {
-      background-color: #f8f8f8;
+      background-color: rgba(255, 255, 255, 0.9);
       padding: 1rem 2rem;
       text-align: center;
     }
@@ -24,12 +28,14 @@
     .hero {
       padding: 4rem 2rem;
       text-align: center;
-      background-color: #eee;
+      background-color: rgba(255, 255, 255, 0.8);
     }
     .section {
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
     }
     .products {
       display: grid;
@@ -40,21 +46,12 @@
       border: 1px solid #ddd;
       padding: 1rem;
       text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
     }
     .product img {
       max-width: 100%;
       height: auto;
-    }
-    .banner {
-      width: 100vw;
-      height: 100vh;
-      background-image: url('banner.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .button {
       display: inline-block;
@@ -74,6 +71,7 @@
       background: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
     .modal-content {
       background: #fff;
@@ -115,87 +113,55 @@
       width: 200px;
       border-radius: 8px;
     }
-    h1.logo {
-      font-size: 2.5rem;
-      margin: 0;
+    .logo-img {
+      height: 540px;
+      max-width: 100%;
     }
     @media (max-width: 600px) {
-      h1.logo {
-        font-size: 1.8rem;
+      .logo-img {
+        height: 360px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="banner"></div>
-
   <header>
-    <h1 class="logo">selo_i_godi</h1>
+    <img src="logo.png" alt="selo_i_godi" class="logo-img">
     <nav>
-      <a href="#products">Каталог</a>
+      <a href="#catalog">Каталог</a>
       <a href="#about">Про нас</a>
       <a href="#contact">Контакти</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Натуральна свинина з нашої ферми</h2>
+    <h1>Натуральна свинина з нашої ферми</h1>
     <p>Свіже, якісне м’ясо без антибіотиків — тільки для вас.</p>
   </section>
 
-  <section id="products" class="section">
-    <h2>Каталог</h2>
+  <section id="catalog" class="section">
+    <h2>Каталог продукції</h2>
     <div class="products">
       <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Свиняча вирізка">
-        <h3>Свиняча вирізка</h3>
-        <p>Ніжна частина без кісток. Ідеально для запікання.</p>
-        <p><strong>Ціна:</strong> 180 грн/кг</p>
-        <p><strong>В наявності:</strong> 25 кг</p>
-        <button class="button" onclick="openModal('Свиняча вирізка', 25)" data-available="25">Купити</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Ребра свинні">
-        <h3>Свинячі ребра</h3>
-        <p>Соковиті реберця для грилю чи духовки.</p>
-        <p><strong>Ціна:</strong> 150 грн/кг</p>
-        <p><strong>В наявності:</strong> 30 кг</p>
-        <button class="button" onclick="openModal('Свинячі ребра', 30)" data-available="30">Купити</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Шия свинна">
+        <img src="neck.jpg" alt="Свиняча шия">
         <h3>Свиняча шия</h3>
-        <p>Мармурове м’ясо — ідеально для шашлику.</p>
-        <p><strong>Ціна:</strong> 190 грн/кг</p>
-        <p><strong>В наявності:</strong> 20 кг</p>
-        <button class="button" onclick="openModal('Свиняча шия', 20)" data-available="20">Купити</button>
+        <p>М'яке м’ясо ідеальне для запікання та грилю.</p>
+        <button class="button" onclick="openModal('Свиняча шия')">Замовити</button>
       </div>
       <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Сало солене">
+        <img src="salo.jpg" alt="Сало солене">
         <h3>Сало солене</h3>
-        <p>Справжнє українське сало з сіллю та спеціями.</p>
-        <p><strong>Ціна:</strong> 100 грн/кг</p>
-        <p><strong>В наявності:</strong> 15 кг</p>
-        <button class="button" onclick="openModal('Сало солене', 15)" data-available="15">Купити</button>
+        <p>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
+        <button class="button" onclick="openModal('Сало солене')">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="lopatka.jpg" alt="Лопатка">
+        <h3>Лопатка</h3>
+        <p>Соковита частина ідеальна для тушкування та запікання.</p>
+        <button class="button" onclick="openModal('Лопатка')">Замовити</button>
       </div>
     </div>
   </section>
-
-  <section id="about" class="section">
-    <h2>Про нас</h2>
-    <p><strong>selo_i_godi</strong> — це родинна ферма, що спеціалізується на вирощуванні свиней у природних умовах. Ми гарантуємо якість та безпеку нашого м’яса: жодних антибіотиків, гормонів чи штучних добавок. Усе — як для себе.</p>
-    <p>Наша місія — зробити доступним натуральне м’ясо для кожної родини. Ми щодня працюємо над тим, щоб ви могли смакувати справжнє, свіжозабите м’ясо з українського села.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Контакти</h2>
-    <p>Телефон: +380 (00) 000-00-00<br>Email: info@seloigodi.ua</p>
-    <p>Instagram / TikTok: @selo_i_godi</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 selo_i_godi — Всі права захищено.</p>
-  </footer>
 
   <div class="modal" id="orderModal">
     <div class="modal-content">
@@ -205,19 +171,20 @@
         <input type="text" id="productName" name="product" readonly>
         <input type="text" name="name" placeholder="Ваше ім’я" required>
         <input type="tel" name="phone" placeholder="Номер телефону" required>
-        <input type="number" id="quantityInput" name="quantity" placeholder="Кількість (кг)" required min="1">
+        <input type="number" name="quantity" placeholder="Кількість (кг)" required min="1">
         <textarea name="message" placeholder="Коментар (необов’язково)"></textarea>
         <button type="submit">Надіслати</button>
       </form>
     </div>
   </div>
 
+  <footer>
+    <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
+  </footer>
+
   <script>
-    function openModal(productName, available) {
+    function openModal(productName) {
       document.getElementById('productName').value = productName;
-      const quantityInput = document.getElementById('quantityInput');
-      quantityInput.max = available;
-      quantityInput.placeholder = `Кількість (макс. ${available} кг)`;
       document.getElementById('orderModal').style.display = 'flex';
     }
     function closeModal() {
@@ -226,39 +193,30 @@
 
     document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      const quantity = parseFloat(this.quantity.value);
-      const maxQuantity = parseFloat(this.quantity.max);
-
-      if (quantity > maxQuantity) {
-        alert(`Максимально доступна кількість: ${maxQuantity} кг`);
-        return;
-      }
-
-      const product = document.getElementById('productName').value;
+      const product = this.product.value;
       const name = this.name.value;
       const phone = this.phone.value;
+      const quantity = this.quantity.value;
       const comment = this.message.value;
 
       const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name}\n📞 Телефон: ${phone}\n✏️ Коментар: ${comment}`;
 
+      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
       const params = new URLSearchParams({
         chat_id: -4914702502,
         text: message
       });
 
-      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage?${params.toString()}`;
-
       try {
-        const response = await fetch(url);
-        if (response.ok) {
+        const res = await fetch(`${url}?${params.toString()}`);
+        if (res.ok) {
           alert("Дякуємо! Ваше замовлення надіслано.");
           closeModal();
         } else {
-          alert("Помилка при надсиланні. Спробуйте ще раз.");
+          alert("Помилка при надсиланні. Спробуйте пізніше.");
         }
-      } catch (error) {
-        alert("Сталася помилка при надсиланні повідомлення.");
+      } catch (err) {
+        alert("Помилка з’єднання. Спробуйте ще раз.");
       }
     });
   </script>
