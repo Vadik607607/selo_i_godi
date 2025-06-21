@@ -197,8 +197,7 @@
       <h3>Оформлення замовлення</h3>
       <form id="orderForm">
         <input type="text" id="productName" name="product" readonly>
-        <input type="text" name="name" placeholder="Ваше ім’я" required>
-        <input type="text" name="surname" placeholder="Прізвище" required>
+        <input type="text" name="fullname" placeholder="Ім’я та прізвище" required>
         <input type="tel" name="phone" placeholder="Номер телефону" required>
         <input type="number" name="quantity" placeholder="Кількість (кг)" required min="1">
         <input type="text" name="address" placeholder="Адреса Нової Пошти (місто, відділення)" required>
@@ -235,8 +234,7 @@
       document.getElementById('orderForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const product = this.product.value;
-        const name = this.name.value;
-        const surname = this.surname.value;
+        const fullname = this.fullname.value;
         const phone = this.phone.value;
         const quantity = parseFloat(this.quantity.value);
         const max = parseFloat(this.quantity.max);
@@ -247,7 +245,7 @@
         const address = this.address.value;
         const comment = this.message.value;
 
-        const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name} ${surname}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
+        const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я та прізвище: ${fullname}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
 
         const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
         const params = new URLSearchParams({
