@@ -87,7 +87,7 @@
       cursor: pointer;
       font-size: 20px;
     }
-    form input, form textarea {
+    form input, form textarea, form select {
       width: 100%;
       margin-bottom: 1rem;
       padding: 0.5rem;
@@ -101,17 +101,6 @@
       padding: 0.5rem 1rem;
       border-radius: 4px;
       cursor: pointer;
-    }
-    .about-gallery {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    .about-gallery img {
-      width: 200px;
-      border-radius: 8px;
     }
     .logo-img {
       height: 540px;
@@ -140,52 +129,52 @@
   </section>
 
   <section id="catalog" class="section">
-  <h2>Каталог продукції</h2>
-  <div class="products">
-    <div class="product">
-      <img src="generalske.jpg" alt="Сало генеральське">
-      <h3>Сало генеральське</h3>
-      <p>Ціна: 185 грн/кг<br>Залишок: 3 кг<br>Ніжне, пряне сало з ароматним маринадом — для справжніх гурманів.</p>
-      <button class="button" onclick="openModal('Сало генеральське', 3)">Замовити</button>
+    <h2>Каталог продукції</h2>
+    <div class="products">
+      <div class="product">
+        <img src="generalske.jpg" alt="Сало генеральське">
+        <h3>Сало генеральське</h3>
+        <p>Ціна: 185 грн/кг<br>Залишок: 3 кг<br>Ніжне, пряне сало з ароматним маринадом — для справжніх гурманів.</p>
+        <button class="button" onclick="openModal('Сало генеральське', 3)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="salo.jpg" alt="Сало солене">
+        <h3>Сало солене</h3>
+        <p>Ціна: 170 грн/кг<br>Залишок: 3 кг<br>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
+        <button class="button" onclick="openModal('Сало солене', 3)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="rebra.jpg" alt="Ребра">
+        <h3>Ребра</h3>
+        <p>Ціна: 180 грн/кг<br>Залишок: 4 кг<br>Смачні ребра для запікання, грилю або тушкування.</p>
+        <button class="button" onclick="openModal('Ребра', 4)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="neck.jpg" alt="Свиняча шия">
+        <h3>Свиняча шия</h3>
+        <p>Ціна: 210 грн/кг<br>Залишок: 5 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
+        <button class="button" onclick="openModal('Свиняча шия', 5)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="lopatka.jpg" alt="Лопатка">
+        <h3>Лопатка</h3>
+        <p>Ціна: 190 грн/кг<br>Залишок: 4 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
+        <button class="button" onclick="openModal('Лопатка', 4)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="vyryzka.jpg" alt="Вирізка">
+        <h3>Вирізка</h3>
+        <p>Ціна: 230 грн/кг<br>Залишок: 2 кг<br>Найніжніше м’ясо для смаження або запікання.</p>
+        <button class="button" onclick="openModal('Вирізка', 2)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="zadnya.jpg" alt="Задня частина">
+        <h3>Задня частина</h3>
+        <p>Ціна: 200 грн/кг<br>Залишок: 6 кг<br>М’ясо з задньої частини туші — універсальне для багатьох страв.</p>
+        <button class="button" onclick="openModal('Задня частина', 6)">Замовити</button>
+      </div>
     </div>
-    <div class="product">
-      <img src="salo.jpg" alt="Сало солене">
-      <h3>Сало солене</h3>
-      <p>Ціна: 170 грн/кг<br>Залишок: 3 кг<br>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
-      <button class="button" onclick="openModal('Сало солене', 3)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="rebra.jpg" alt="Ребра">
-      <h3>Ребра</h3>
-      <p>Ціна: 180 грн/кг<br>Залишок: 4 кг<br>Смачні ребра для запікання, грилю або тушкування.</p>
-      <button class="button" onclick="openModal('Ребра', 4)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="neck.jpg" alt="Свиняча шия">
-      <h3>Свиняча шия</h3>
-      <p>Ціна: 210 грн/кг<br>Залишок: 5 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
-      <button class="button" onclick="openModal('Свиняча шия', 5)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="lopatka.jpg" alt="Лопатка">
-      <h3>Лопатка</h3>
-      <p>Ціна: 190 грн/кг<br>Залишок: 4 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
-      <button class="button" onclick="openModal('Лопатка', 4)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="vyryzka.jpg" alt="Вирізка">
-      <h3>Вирізка</h3>
-      <p>Ціна: 230 грн/кг<br>Залишок: 2 кг<br>Найніжніше м’ясо для смаження або запікання.</p>
-      <button class="button" onclick="openModal('Вирізка', 2)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="zadnya.jpg" alt="Задня частина">
-      <h3>Задня частина</h3>
-      <p>Ціна: 200 грн/кг<br>Залишок: 6 кг<br>М’ясо з задньої частини туші — універсальне для багатьох страв.</p>
-      <button class="button" onclick="openModal('Задня частина', 6)">Замовити</button>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="about" class="section">
     <h2>Про нас</h2>
@@ -201,13 +190,13 @@
   </section>
 
   <div class="modal" id="orderModal">
-  $1
-<div id="mapLinks" style="margin-top: 1rem;">
-  <p><strong>📍 Швидкий вибір відділення:</strong></p>
-  <button type="button" onclick="setNP('Київ', '12')">Київ — Відділення №12</button>
-  <button type="button" onclick="setNP('Львів', '3')">Львів — Відділення №3</button>
-  <button type="button" onclick="setNP('Харків', '9')">Харків — Відділення №9</button>
-</div>
+    <iframe src="https://novaposhta.ua/map" width="100%" height="400" style="border:0; border-radius: 8px; margin-bottom: 1rem;"></iframe>
+    <div id="mapLinks" style="margin-top: 1rem;">
+      <p><strong>📍 Швидкий вибір відділення:</strong></p>
+      <button type="button" onclick="setNP('Київ', '12')">Київ — Відділення №12</button>
+      <button type="button" onclick="setNP('Львів', '3')">Львів — Відділення №3</button>
+      <button type="button" onclick="setNP('Харків', '9')">Харків — Відділення №9</button>
+    </div>
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3>Оформлення замовлення</h3>
@@ -236,76 +225,81 @@
   </footer>
 
   <script>
-    function openModal(productName, max) {
-  document.getElementById('productName').value = productName;
-  const quantityInput = document.querySelector('input[name="quantity"]');
-  quantityInput.max = max;
-  quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
-  document.getElementById('orderModal').style.display = 'flex';
-}
-    function closeModal() {
-      document.getElementById('orderModal').style.display = 'none';
-    }
-
-    document.getElementById('orderForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const product = this.product.value;
-      const name = this.name.value;
-      const phone = this.phone.value;
-      const quantity = parseFloat(this.quantity.value);
-      const max = parseFloat(this.quantity.max);
-      if (quantity > max) {
-        alert(`Максимальна кількість для замовлення: ${max} кг`);
-        return;
+    document.addEventListener('DOMContentLoaded', function () {
+      function openModal(productName, max) {
+        document.getElementById('productName').value = productName;
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        quantityInput.max = max;
+        quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
+        document.getElementById('orderModal').style.display = 'flex';
       }
-      const city = this.city.value;
-      const branch = this.branch.value;
-      const address = `м. ${city}, відділення ${branch}`;
-      const comment = this.message.value;
 
-      const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}
-✏️ Коментар: ${comment}`;
+      window.openModal = openModal;
 
-      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
-      const params = new URLSearchParams({
-        chat_id: -4914702502,
-        text: message
+      window.closeModal = function () {
+        document.getElementById('orderModal').style.display = 'none';
+      };
+
+      window.setNP = function(city, branch) {
+        const citySelect = document.getElementById('city');
+        const branchSelect = document.getElementById('branch');
+        citySelect.value = city;
+        citySelect.dispatchEvent(new Event('change'));
+        setTimeout(() => {
+          branchSelect.value = branch;
+        }, 100);
+      };
+
+      document.getElementById('city').addEventListener('change', function () {
+        const branch = document.getElementById('branch');
+        const city = this.value;
+        branch.innerHTML = '<option value="">Оберіть відділення</option>';
+        if (city === 'Київ') {
+          branch.innerHTML += '<option value="1">Відділення №1</option><option value="12">Відділення №12</option>';
+        } else if (city === 'Львів') {
+          branch.innerHTML += '<option value="3">Відділення №3</option><option value="7">Відділення №7</option>';
+        } else if (city === 'Харків') {
+          branch.innerHTML += '<option value="5">Відділення №5</option><option value="9">Відділення №9</option>';
+        }
       });
 
-      try {
-        const res = await fetch(`${url}?${params.toString()}`);
-        if (res.ok) {
-          alert("Дякуємо! Ваше замовлення надіслано.");
-          closeModal();
-        } else {
-          alert("Помилка при надсиланні. Спробуйте пізніше.");
+      document.getElementById('orderForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const product = this.product.value;
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const quantity = parseFloat(this.quantity.value);
+        const max = parseFloat(this.quantity.max);
+        if (quantity > max) {
+          alert(`Максимальна кількість для замовлення: ${max} кг`);
+          return;
         }
-      } catch (err) {
-        alert("Помилка з’єднання. Спробуйте ще раз.");
-      }
-    });
-  document.getElementById('city').addEventListener('change', function () {
-  const branch = document.getElementById('branch');
-  const city = this.value;
-  branch.innerHTML = '<option value="">Оберіть відділення</option>';
-  if (city === 'Київ') {
-    branch.innerHTML += '<option value="1">Відділення №1</option><option value="12">Відділення №12</option>';
-  } else if (city === 'Львів') {
-    branch.innerHTML += '<option value="3">Відділення №3</option><option value="7">Відділення №7</option>';
-  } else if (city === 'Харків') {
-    branch.innerHTML += '<option value="5">Відділення №5</option><option value="9">Відділення №9</option>';
-  }
-});
+        const city = this.city.value;
+        const branch = this.branch.value;
+        const address = `м. ${city}, відділення ${branch}`;
+        const comment = this.message.value;
 
-function setNP(city, branch) {
-  const citySelect = document.getElementById('city');
-  const branchSelect = document.getElementById('branch');
-  citySelect.value = city;
-  citySelect.dispatchEvent(new Event('change'));
-  setTimeout(() => {
-    branchSelect.value = branch;
-  }, 100);
-}
-$1
+        const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
+
+        const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
+        const params = new URLSearchParams({
+          chat_id: -4914702502,
+          text: message
+        });
+
+        try {
+          const res = await fetch(`${url}?${params.toString()}`);
+          if (res.ok) {
+            alert("Дякуємо! Ваше замовлення надіслано.");
+            window.closeModal();
+          } else {
+            alert("Помилка при надсиланні. Спробуйте пізніше.");
+          }
+        } catch (err) {
+          alert("Помилка з’єднання. Спробуйте ще раз.");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
