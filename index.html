@@ -46,11 +46,12 @@
       height: auto;
     }
     .banner {
-      width: 100vw;
-      height: 50vh;
+      width: 100%;
+      height: 45vh;
       background-image: url('banner.jpg');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
     }
     .button {
       display: inline-block;
@@ -100,6 +101,17 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    .about-gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .about-gallery img {
+      width: 200px;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -146,12 +158,26 @@
         <p><strong>В наявності:</strong> 20 кг</p>
         <button class="button" onclick="openModal('Свиняча шия')">Купити</button>
       </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Сало солене">
+        <h3>Сало солене</h3>
+        <p>Справжнє українське сало з сіллю та спеціями.</p>
+        <p><strong>Ціна:</strong> 100 грн/кг</p>
+        <p><strong>В наявності:</strong> 15 кг</p>
+        <button class="button" onclick="openModal('Сало солене')">Купити</button>
+      </div>
     </div>
   </section>
 
   <section id="about" class="section">
     <h2>Про нас</h2>
-    <p>selo_i_godi — це родинна ферма, де дбають про якість м’яса та добробут тварин. Ми вирощуємо свиней без гормонів і штучних домішок.</p>
+    <p><strong>selo_i_godi</strong> — це родинна ферма, що спеціалізується на вирощуванні свиней у природних умовах. Ми гарантуємо якість та безпеку нашого м’яса: жодних антибіотиків, гормонів чи штучних добавок. Усе — як для себе.</p>
+    <p>Наша місія — зробити доступним натуральне м’ясо для кожної родини. Ми щодня працюємо над тим, щоб ви могли смакувати справжнє, свіжозабите м’ясо з українського села.</p>
+    <div class="about-gallery">
+      <img src="https://via.placeholder.com/200x150?text=Ферма" alt="Ферма">
+      <img src="https://via.placeholder.com/200x150?text=Тварини" alt="Тварини">
+      <img src="https://via.placeholder.com/200x150?text=Команда" alt="Команда">
+    </div>
   </section>
 
   <section id="contact" class="section">
