@@ -45,6 +45,13 @@
       max-width: 100%;
       height: auto;
     }
+    .banner {
+      width: 100vw;
+      height: 50vh;
+      background-image: url('banner.jpg');
+      background-size: cover;
+      background-position: center;
+    }
     .button {
       display: inline-block;
       margin-top: 1rem;
@@ -96,9 +103,7 @@
   </style>
 </head>
 <body>
-  <div style="text-align: center; background-color: #e0e0e0; padding: 1rem;">
-    <img src="banner.jpg" alt="selo_i_godi banner" style="max-width: 100%; height: auto;">
-  </div>
+  <div class="banner"></div>
 
   <header>
     <h1>selo_i_godi</h1>
@@ -190,13 +195,16 @@
       const name = this.name.value;
       const phone = this.phone.value;
       const quantity = this.quantity.value;
-      const message = this.message.value;
+      const comment = this.message.value;
 
-      const text = `Нове замовлення:%0A📦 Продукт: ${product}%0A🔢 Кількість: ${quantity} кг%0A👤 Ім’я: ${name}%0A📞 Телефон: ${phone}%0A✏️ Коментар: ${message}`;
+      const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name}\n📞 Телефон: ${phone}\n✏️ Коментар: ${comment}`;
 
-      const telegramBotToken = '7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc';
-      const chatId = -4914702502;
-      const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${text}`;
+      const params = new URLSearchParams({
+        chat_id: -4914702502,
+        text: message
+      });
+
+      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage?${params.toString()}`;
 
       try {
         const response = await fetch(url);
