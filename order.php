@@ -27,13 +27,27 @@ $message = "Нове замовлення:\n"
 
 // Надсилання запиту в Telegram
 $apiUrl = "https://api.telegram.org/bot$botToken/sendMessage";
-$response = file_get_contents($apiUrl . '?' . http_build_query([
+
+$params = [
   'chat_id' => $chatId,
   'text' => $message
-]));
+];
 
-echo $response;
-exit;
+// Відправити POST-запит через cURL
+$ch = curl_init($apiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+$response = curl_exec($ch);
+$error = curl_error($ch);
+curl_close($ch);
+
+// Покажемо результат
+header('Content-Type: application/json');
+
+if ($response) {
+  echo $response; // покажемо відповідь Telegram
+} else {
+  echo json_encode(['error' => $error]);
 }
 
 $result = json_decode($response, true);
