@@ -363,40 +363,22 @@ $1
 
     document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const product = this.product.value;
-      const fullname = this.fullname.value;
-      const phone = this.phone.value;
-      const quantity = parseFloat(this.quantity.value);
-      const max = parseFloat(this.quantity.max);
-      if (quantity > max) {
-        alert(`Максимальна кількість для замовлення: ${max} кг`);
-        return;
-      }
-      const address = this.address.value;
-      const comment = this.message.value;
-
-      const message = `Нове замовлення:
-📦 Продукт: ${product}
-🔢 Кількість: ${quantity} кг
-👤 Ім’я та прізвище: ${fullname}
-📞 Телефон: ${phone}
-✏️ Адреса: ${address}
-✏️ Коментар: ${comment}`;
-
       const formData = new FormData(this);
-const res = await fetch('order.php', {
-  method: 'POST',
-  body: formData
-});
 
       try {
-        const res = await fetch(`${url}?${params.toString()}`);
-        if (res.ok) {
-          alert("Дякуємо! Вам перезвонять для уточнення оплати і відправки.");
-          document.getElementById('orderForm').reset();
-          window.closeModal();
+        const res = await fetch('order.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const text = await res.text();
+
+        if (res.ok && text.trim() === "OK") {
+          alert("Дякуємо! Ваше замовлення надіслано.");
+          this.reset();
+          closeModal();
         } else {
-          alert("Помилка при надсиланні. Спробуйте пізніше.");
+          alert("Помилка при надсиланні: " + text);
         }
       } catch (err) {
         alert("Помилка з’єднання. Спробуйте ще раз.");
@@ -404,5 +386,6 @@ const res = await fetch('order.php', {
     });
   });
 </script>
+
 </body>
 </html>
