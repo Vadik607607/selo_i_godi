@@ -39,7 +39,7 @@
     }
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
     .product {
@@ -63,53 +63,85 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 2rem;
-      max-width: 400px;
-      width: 100%;
-      border-radius: 8px;
-      position: relative;
-    }
-    .close {
-      position: absolute;
-      top: 10px; right: 15px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    form input, form textarea, form select {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    form button {
-      background-color: #c0392b;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
     .logo-img {
-      height: 540px;
+      height: 270px;
       max-width: 100%;
     }
     @media (max-width: 600px) {
       .logo-img {
-        height: 360px;
+        height: 180px;
       }
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      position: relative;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      font-size: 16px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      color: #c0392b;
+      font-size: 22px;
+    }
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .modal-content textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .modal-content button {
+      width: 100%;
+      background-color: #c0392b;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .modal-content button:hover {
+      background-color: #a93226;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -132,46 +164,28 @@
     <h2>Каталог продукції</h2>
     <div class="products">
       <div class="product">
-        <img src="generalske.jpg" alt="Сало генеральське">
-        <h3>Сало генеральське</h3>
-        <p>Ціна: 185 грн/кг<br>Залишок: 3 кг<br>Ніжне, пряне сало з ароматним маринадом — для справжніх гурманів.</p>
-        <button class="button" onclick="openModal('Сало генеральське', 3)">Замовити</button>
-      </div>
-      <div class="product">
-        <img src="salo.jpg" alt="Сало солене">
-        <h3>Сало солене</h3>
-        <p>Ціна: 170 грн/кг<br>Залишок: 3 кг<br>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
-        <button class="button" onclick="openModal('Сало солене', 3)">Замовити</button>
-      </div>
-      <div class="product">
-        <img src="rebra.jpg" alt="Ребра">
-        <h3>Ребра</h3>
-        <p>Ціна: 180 грн/кг<br>Залишок: 4 кг<br>Смачні ребра для запікання, грилю або тушкування.</p>
-        <button class="button" onclick="openModal('Ребра', 4)">Замовити</button>
-      </div>
-      <div class="product">
         <img src="neck.jpg" alt="Свиняча шия">
         <h3>Свиняча шия</h3>
-        <p>Ціна: 210 грн/кг<br>Залишок: 5 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
-        <button class="button" onclick="openModal('Свиняча шия', 5)">Замовити</button>
-      </div>
-      <div class="product">
-        <img src="lopatka.jpg" alt="Лопатка">
-        <h3>Лопатка</h3>
-        <p>Ціна: 190 грн/кг<br>Залишок: 4 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
-        <button class="button" onclick="openModal('Лопатка', 4)">Замовити</button>
+        <p>Ціна: 250 грн/кг<br>Залишок: 4.1 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
+        <button class="button" onclick="openModal('Свиняча шия', 10)">Замовити</button>
       </div>
       <div class="product">
         <img src="vyryzka.jpg" alt="Вирізка">
         <h3>Вирізка</h3>
         <p>Ціна: 230 грн/кг<br>Залишок: 2 кг<br>Найніжніше м’ясо для смаження або запікання.</p>
-        <button class="button" onclick="openModal('Вирізка', 2)">Замовити</button>
+        <button class="button" onclick="openModal('Вирізка', 10)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="lopatka.jpg" alt="Лопатка">
+        <h3>Лопатка</h3>
+        <p>Ціна: 190 грн/кг<br>Залишок: 3 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
+        <button class="button" onclick="openModal('Лопатка', 10)">Замовити</button>
       </div>
       <div class="product">
         <img src="zadnya.jpg" alt="Задня частина">
         <h3>Задня частина</h3>
         <p>Ціна: 200 грн/кг<br>Залишок: 6 кг<br>М’ясо з задньої частини туші — універсальне для багатьох страв.</p>
-        <button class="button" onclick="openModal('Задня частина', 6)">Замовити</button>
+        <button class="button" onclick="openModal('Задня частина', 10)">Замовити</button>
       </div>
     </div>
   </section>
@@ -189,84 +203,44 @@
     <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@selo_i_godi" target="_blank">@selo_i_godi</a></p>
   </section>
 
+  <footer>
+    <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
+  </footer>
+
   <div class="modal" id="orderModal">
-    <iframe src="https://novaposhta.ua/map" width="100%" height="400" style="border:0; border-radius: 8px; margin-bottom: 1rem;"></iframe>
-    
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <h3>Оформлення замовлення</h3>
+      <h2>Оформлення замовлення</h2>
       <form id="orderForm">
-        <input type="text" id="productName" name="product" readonly>
-        <input type="text" name="name" placeholder="Ваше ім’я" required>
-        <input type="text" name="surname" placeholder="Прізвище" required>
-        <input type="tel" name="phone" placeholder="Номер телефону" required>
-        <input type="number" name="quantity" placeholder="Кількість (кг)" required min="1">
-        <input type="text" name="address" placeholder="Адреса Нової Пошти (місто, відділення)" required>
+        <input type="text" name="fullname" placeholder="Ім’я та прізвище" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <input type="text" name="address" placeholder="Адреса Нової Пошти" required>
+        <input type="number" name="quantity" step="0.1" placeholder="Кількість (в кг)" required>
+        <input type="hidden" name="product" id="productName">
         <textarea name="message" placeholder="Коментар (необов’язково)"></textarea>
         <button type="submit">Надіслати</button>
       </form>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
-  </footer>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function openModal(productName, max) {
-        document.getElementById('productName').value = productName;
-        const quantityInput = document.querySelector('input[name="quantity"]');
-        quantityInput.max = max;
-        quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
-        document.getElementById('orderModal').style.display = 'flex';
-      }
+    function openModal(productName, max = 10) {
+      document.getElementById('productName').value = productName;
+      const quantityInput = document.querySelector('input[name="quantity"]');
+      quantityInput.max = max;
+      quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
+      document.getElementById('orderModal').style.display = 'flex';
+    }
 
-      window.openModal = openModal;
+    function closeModal() {
+      document.getElementById('orderModal').style.display = 'none';
+    }
 
-      window.closeModal = function () {
-        document.getElementById('orderModal').style.display = 'none';
-      };
-
-      
-
-      
-
-      document.getElementById('orderForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const product = this.product.value;
-        const name = this.name.value;
-        const surname = this.surname.value;
-        const phone = this.phone.value;
-        const quantity = parseFloat(this.quantity.value);
-        const max = parseFloat(this.quantity.max);
-        if (quantity > max) {
-          alert(`Максимальна кількість для замовлення: ${max} кг`);
-          return;
-        }
-        const address = this.address.value;
-        const comment = this.message.value;
-
-        const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name} ${surname}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
-
-        const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
-        const params = new URLSearchParams({
-          chat_id: -4914702502,
-          text: message
-        });
-
-        try {
-          const res = await fetch(`${url}?${params.toString()}`);
-          if (res.ok) {
-            alert("Дякуємо! Ваше замовлення надіслано.");
-            window.closeModal();
-          } else {
-            alert("Помилка при надсиланні. Спробуйте пізніше.");
-          }
-        } catch (err) {
-          alert("Помилка з’єднання. Спробуйте ще раз.");
-        }
-      });
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Замовлення надіслано!');
+      closeModal();
+      this.reset();
     });
   </script>
 </body>
