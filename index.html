@@ -176,7 +176,7 @@
     <div class="product">
       <img src="neck.jpg" alt="Свиняча шия">
       <h3>Свиняча шия</h3>
-      <p>Ціна: 210 грн/кг<br>Залишок: 5 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
+      <p>Ціна: 250 грн/кг<br>Залишок: 4.1 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
       <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
     </div>
     <div class="product">
@@ -188,7 +188,7 @@
     <div class="product">
       <img src="lopatka.jpg" alt="Лопатка">
       <h3>Лопатка</h3>
-      <p>Ціна: 190 грн/кг<br>Залишок: 4 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
+      <p>Ціна: 190 грн/кг<br>Залишок: 3 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
       <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
     </div>
     <div class="product">
@@ -327,6 +327,8 @@ $1
     <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
   </footer>
 
+  
+
   <div class="modal" id="orderModal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -347,7 +349,7 @@ $1
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    function openModal(productName, max) {
+    function openModal(productName, max = 10) {
       document.getElementById('productName').value = productName;
       const quantityInput = document.querySelector('input[name="quantity"]');
       quantityInput.max = max;
