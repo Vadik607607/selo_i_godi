@@ -383,11 +383,11 @@ $1
 ✏️ Адреса: ${address}
 ✏️ Коментар: ${comment}`;
 
-      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
-      const params = new URLSearchParams({
-        chat_id: -4914702502,
-        text: message
-      });
+      const formData = new FormData(this);
+const res = await fetch('order.php', {
+  method: 'POST',
+  body: formData
+});
 
       try {
         const res = await fetch(`${url}?${params.toString()}`);
