@@ -32,10 +32,8 @@ $response = file_get_contents($apiUrl . '?' . http_build_query([
   'text' => $message
 ]));
 
-if ($response === false) {
-  http_response_code(500);
-  echo "Не вдалося зв’язатися з Telegram.";
-  exit;
+echo $response;
+exit;
 }
 
 $result = json_decode($response, true);
