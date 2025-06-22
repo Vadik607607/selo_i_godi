@@ -327,6 +327,8 @@ $1
     <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
   </footer>
 
+  
+
   <div class="modal" id="orderModal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -347,7 +349,7 @@ $1
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    function openModal(productName, max) {
+    function openModal(productName, max = 10) {
       document.getElementById('productName').value = productName;
       const quantityInput = document.querySelector('input[name="quantity"]');
       quantityInput.max = max;
