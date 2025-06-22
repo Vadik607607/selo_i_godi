@@ -37,7 +37,9 @@
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
     }
-    $1grid-template-columns: repeat(2, 1fr);
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
     .product {
@@ -62,7 +64,6 @@
       cursor: pointer;
     }
     .modal {
-      align-items: flex-start;
       display: none;
       position: fixed;
       top: 0; left: 0;
@@ -73,8 +74,6 @@
       z-index: 1000;
     }
     .modal-content {
-      max-height: 90vh;
-      overflow-y: auto;
       background: #fff;
       padding: 2rem;
       max-width: 400px;
@@ -104,53 +103,15 @@
       cursor: pointer;
     }
     .logo-img {
-      height: 270px;
+      height: 540px;
       max-width: 100%;
     }
     @media (max-width: 600px) {
       .logo-img {
-        height: 180px;
+        height: 360px;
       }
     }
-    #cart {
-    position: fixed;
-    top: 80px;
-    right: 0;
-    width: 280px;
-    max-height: 80vh;
-    overflow-y: auto;
-    background: #fff;
-    border-left: 2px solid #ccc;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    padding: 1rem;
-    z-index: 9999;
-  }
-  #cart h2 {
-    font-size: 18px;
-    margin-top: 0;
-  }
-  #cart ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem 0;
-  }
-  #cart li {
-    margin-bottom: 0.5rem;
-    font-size: 15px;
-  }
-  @media (max-width: 768px) {
-    #cart {
-      width: 100%;
-      left: 0;
-      right: 0;
-      top: auto;
-      bottom: 0;
-      border-left: none;
-      border-top: 2px solid #ccc;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    }
-  }
-</style>
+  </style>
 </head>
 <body>
   <header>
@@ -168,146 +129,54 @@
   </section>
 
   <section id="catalog" class="section">
-  <h2>Каталог продукції</h2>
+    <h2>Каталог продукції</h2>
+    <div class="products">
+      <div class="product">
+        <img src="generalske.jpg" alt="Сало генеральське">
+        <h3>Сало генеральське</h3>
+        <p>Ціна: 185 грн/кг<br>Залишок: 3 кг<br>Ніжне, пряне сало з ароматним маринадом — для справжніх гурманів.</p>
+        <button class="button" onclick="openModal('Сало генеральське', 3)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="salo.jpg" alt="Сало солене">
+        <h3>Сало солене</h3>
+        <p>Ціна: 170 грн/кг<br>Залишок: 3 кг<br>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
+        <button class="button" onclick="openModal('Сало солене', 3)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="rebra.jpg" alt="Ребра">
+        <h3>Ребра</h3>
+        <p>Ціна: 180 грн/кг<br>Залишок: 4 кг<br>Смачні ребра для запікання, грилю або тушкування.</p>
+        <button class="button" onclick="openModal('Ребра', 4)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="neck.jpg" alt="Свиняча шия">
+        <h3>Свиняча шия</h3>
+        <p>Ціна: 210 грн/кг<br>Залишок: 5 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
+        <button class="button" onclick="openModal('Свиняча шия', 5)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="lopatka.jpg" alt="Лопатка">
+        <h3>Лопатка</h3>
+        <p>Ціна: 190 грн/кг<br>Залишок: 4 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
+        <button class="button" onclick="openModal('Лопатка', 4)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="vyryzka.jpg" alt="Вирізка">
+        <h3>Вирізка</h3>
+        <p>Ціна: 230 грн/кг<br>Залишок: 2 кг<br>Найніжніше м’ясо для смаження або запікання.</p>
+        <button class="button" onclick="openModal('Вирізка', 2)">Замовити</button>
+      </div>
+      <div class="product">
+        <img src="zadnya.jpg" alt="Задня частина">
+        <h3>Задня частина</h3>
+        <p>Ціна: 200 грн/кг<br>Залишок: 6 кг<br>М’ясо з задньої частини туші — універсальне для багатьох страв.</p>
+        <button class="button" onclick="openModal('Задня частина', 6)">Замовити</button>
+      </div>
+    </div>
+  </section>
 
-  <h3>Мʼясо</h3>
-  <div class="products">
-    <!-- Свиняча шия, Вирізка, Лопатка, Задня частина -->
-    <div class="product">
-      <img src="neck.jpg" alt="Свиняча шия">
-      <h3>Свиняча шия</h3>
-      <p>Ціна: 250 грн/кг<br>Залишок: 4.1 кг<br>М'яке м’ясо ідеальне для запікання та грилю.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="vyryzka.jpg" alt="Вирізка">
-      <h3>Вирізка</h3>
-      <p>Ціна: 230 грн/кг<br>Залишок: 2 кг<br>Найніжніше м’ясо для смаження або запікання.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="lopatka.jpg" alt="Лопатка">
-      <h3>Лопатка</h3>
-      <p>Ціна: 190 грн/кг<br>Залишок: 3 кг<br>Соковита частина ідеальна для тушкування та запікання.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="zadnya.jpg" alt="Задня частина">
-      <h3>Задня частина</h3>
-      <p>Ціна: 200 грн/кг<br>Залишок: 6 кг<br>М’ясо з задньої частини туші — універсальне для багатьох страв.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-  <h3>Сало і копченості</h3>
-  <div class="products">
-    <div class="product">
-      <img src="salo.jpg" alt="Сало солене">
-      <h3>Сало солене</h3>
-      <p>Ціна: 170 грн/кг<br>Залишок: 3 кг<br>Натуральне сало з сіллю та спеціями — смак дитинства.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="generalske.jpg" alt="Сало генеральське">
-      <h3>Сало генеральське</h3>
-      <p>Ціна: 185 грн/кг<br>Залишок: 3 кг<br>Ніжне, пряне сало з ароматним маринадом — для справжніх гурманів.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="rulet.jpg" alt="Рулет мʼясний, копчений">
-      <h3>Рулет мʼясний, копчений</h3>
-      <p>Ціна: 260 грн/кг<br>Залишок: 3 кг<br>Ароматний домашній рулет зі свинини, приготований з димком — смачний і натуральний.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-  <h3>Субпродукти</h3>
-  <div class="products">
-    <div class="product">
-      <img src="serce.jpg" alt="Серце">
-      <h3>Серце</h3>
-      <p>Ціна: 115 грн/кг<br>Залишок: 5 кг<br>Серце — поживне, ніжне м’ясо, чудове для тушкування або смаження.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="legeni.jpg" alt="Легені">
-      <h3>Легені</h3>
-      <p>Ціна: 110 грн/кг<br>Залишок: 5 кг<br>Легені — поживний продукт для тушкування або домашньої ковбаси.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="pechinka.jpg" alt="Печінка">
-      <h3>Печінка</h3>
-      <p>Ціна: 130 грн/кг<br>Залишок: 6 кг<br>Свіжа та корисна печінка — ідеальна для паштетів, смаження та тушкування.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-  <h3>Для холодцю</h3>
-  <div class="products">
-    <div class="product">
-      <img src="rulka.jpg" alt="Рулька">
-      <h3>Рулька</h3>
-      <p>Ціна: 160 грн/кг<br>Залишок: 5 кг<br>Ароматна свиняча рулька — ідеальна для запікання або тушкування.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="nozhka.jpg" alt="Ніжка (копитце)">
-      <h3>Ніжка (копитце)</h3>
-      <p>Ціна: 120 грн/кг<br>Залишок: 6 кг<br>Ідеальна для холодцю або тушкування — ароматна й навариста частина.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="vukha.jpg" alt="Вуха (пара)">
-      <h3>Вуха (пара)</h3>
-      <p>Ціна: 90 грн/пара<br>Залишок: 5 пар<br>Ідеальні для тушкування або закусок — ароматні, мʼясисті вушка.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="hvist.jpg" alt="Хвіст">
-      <h3>Хвіст</h3>
-      <p>Ціна: 100 грн/кг<br>Залишок: 4 кг<br>Ніжний та наваристий — чудовий для холодцю або тушкованих страв.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-  <h3>Гриль</h3>
-  <div class="products">
-    <div class="product">
-      <img src="rebra.jpg" alt="Ребра">
-      <h3>Ребра</h3>
-      <p>Ціна: 180 грн/кг<br>Залишок: 4 кг<br>Смачні ребра для запікання, грилю або тушкування.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-$1
-    <div class="product">
-      <img src="pashtet.jpg" alt="Паштет свинний">
-      <h3>Паштет свинний</h3>
-      <p>Ціна: 75 грн/шт<br>Залишок: 8 шт<br>Домашній паштет зі свинини — ніжний смак, ідеально до хліба.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-    <div class="product">
-      <img src="zakrutka.jpg" alt="Тушонка зі свинини">
-      <h3>Тушонка зі свинини</h3>
-      <p>Ціна: 80 грн/шт<br>Залишок: 10 шт<br>Сезонні овочі, мариновані вдома — без консервантів, з любовʼю.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-  <h3>Маринад</h3>
-  <div class="products">
-    <div class="product">
-      <img src="marinad.jpg" alt="Шашлик маринований, вакуумований(3-3.5кг)">
-      <h3>Шашлик маринований, вакуумований(3-3.5кг)</h3>
-      <p>Ціна: 220 грн/кг<br>Залишок: 4 кг<br>Свинина в ароматному маринаді — готова до запікання або грилю.</p>
-      <button class="button" onclick="openModal(this.parentElement.querySelector('h3').innerText, 10)">Замовити</button>
-    </div>
-  </div>
-
-
-
-<section id="about" class="section">
+  <section id="about" class="section">
     <h2>Про нас</h2>
     <p><strong>selo_i_godi</strong> — це родинна ферма, що спеціалізується на вирощуванні свиней у природних умовах. Ми гарантуємо якість та безпеку нашого м’яса: жодних антибіотиків, гормонів чи штучних добавок.</p>
     <p>Наша мета — щоб кожна родина могла смакувати справжнє, свіже м’ясо з українського села.</p>
@@ -320,91 +189,85 @@ $1
     <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@selo_i_godi" target="_blank">@selo_i_godi</a></p>
   </section>
 
-  
-  </div>
-
-  <footer>
-    <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
-  </footer>
-
-  
-
   <div class="modal" id="orderModal">
+    <iframe src="https://novaposhta.ua/map" width="100%" height="400" style="border:0; border-radius: 8px; margin-bottom: 1rem;"></iframe>
+    
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Оформлення замовлення</h2>
+      <h3>Оформлення замовлення</h3>
       <form id="orderForm">
-        <input type="text" name="fullname" placeholder="Ім’я та прізвище" required>
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <input type="text" name="address" placeholder="Адреса Нової Пошти" required>
-        <input type="number" name="quantity" step="0.1" placeholder="Кількість (в кг)" required>
-        <input type="hidden" name="product" id="productName">
+        <input type="text" id="productName" name="product" readonly>
+        <input type="text" name="name" placeholder="Ваше ім’я" required>
+        <input type="text" name="surname" placeholder="Прізвище" required>
+        <input type="tel" name="phone" placeholder="Номер телефону" required>
+        <input type="number" name="quantity" placeholder="Кількість (кг)" required min="1">
+        <input type="text" name="address" placeholder="Адреса Нової Пошти (місто, відділення)" required>
         <textarea name="message" placeholder="Коментар (необов’язково)"></textarea>
         <button type="submit">Надіслати</button>
       </form>
     </div>
   </div>
 
-  
+  <footer>
+    <p>&copy; 2025 selo_i_godi. Всі права захищено.</p>
+  </footer>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    function openModal(productName, max = 10) {
-      document.getElementById('productName').value = productName;
-      const quantityInput = document.querySelector('input[name="quantity"]');
-      quantityInput.max = max;
-      quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
-      document.getElementById('orderModal').style.display = 'flex';
-    }
-
-    window.openModal = openModal;
-
-    window.closeModal = function () {
-      document.getElementById('orderModal').style.display = 'none';
-    };
-
-    document.getElementById('orderForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const product = this.product.value;
-      const fullname = this.fullname.value;
-      const phone = this.phone.value;
-      const quantity = parseFloat(this.quantity.value);
-      const max = parseFloat(this.quantity.max);
-      if (quantity > max) {
-        alert(`Максимальна кількість для замовлення: ${max} кг`);
-        return;
+    document.addEventListener('DOMContentLoaded', function () {
+      function openModal(productName, max) {
+        document.getElementById('productName').value = productName;
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        quantityInput.max = max;
+        quantityInput.placeholder = `Кількість (макс: ${max} кг)`;
+        document.getElementById('orderModal').style.display = 'flex';
       }
-      const address = this.address.value;
-      const comment = this.message.value;
 
-      const message = `Нове замовлення:
-📦 Продукт: ${product}
-🔢 Кількість: ${quantity} кг
-👤 Ім’я та прізвище: ${fullname}
-📞 Телефон: ${phone}
-✏️ Адреса: ${address}
-✏️ Коментар: ${comment}`;
+      window.openModal = openModal;
 
-      const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
-      const params = new URLSearchParams({
-        chat_id: -4914702502,
-        text: message
-      });
+      window.closeModal = function () {
+        document.getElementById('orderModal').style.display = 'none';
+      };
 
-      try {
-        const res = await fetch(`${url}?${params.toString()}`);
-        if (res.ok) {
-          alert("Дякуємо! Вам перезвонять для уточнення оплати і відправки.");
-          document.getElementById('orderForm').reset();
-          window.closeModal();
-        } else {
-          alert("Помилка при надсиланні. Спробуйте пізніше.");
+      
+
+      
+
+      document.getElementById('orderForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const product = this.product.value;
+        const name = this.name.value;
+        const surname = this.surname.value;
+        const phone = this.phone.value;
+        const quantity = parseFloat(this.quantity.value);
+        const max = parseFloat(this.quantity.max);
+        if (quantity > max) {
+          alert(`Максимальна кількість для замовлення: ${max} кг`);
+          return;
         }
-      } catch (err) {
-        alert("Помилка з’єднання. Спробуйте ще раз.");
-      }
+        const address = this.address.value;
+        const comment = this.message.value;
+
+        const message = `Нове замовлення:\n📦 Продукт: ${product}\n🔢 Кількість: ${quantity} кг\n👤 Ім’я: ${name} ${surname}\n📞 Телефон: ${phone}\n✏️ Адреса: ${address}\n✏️ Коментар: ${comment}`;
+
+        const url = `https://api.telegram.org/bot7977927826:AAGdEOP3vJ6gsCLBTaxcwxfk1sEpVI7tQqc/sendMessage`;
+        const params = new URLSearchParams({
+          chat_id: -4914702502,
+          text: message
+        });
+
+        try {
+          const res = await fetch(`${url}?${params.toString()}`);
+          if (res.ok) {
+            alert("Дякуємо! Ваше замовлення надіслано.");
+            window.closeModal();
+          } else {
+            alert("Помилка при надсиланні. Спробуйте пізніше.");
+          }
+        } catch (err) {
+          alert("Помилка з’єднання. Спробуйте ще раз.");
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
