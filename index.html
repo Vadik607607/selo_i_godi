@@ -373,7 +373,7 @@ $1
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    function openModal(productName, max = 100) {
+    function openModal(productName, max = 10) {
       document.getElementById('productName').value = productName;
       const quantityInput = document.querySelector('input[name="quantity"]');
       quantityInput.max = max;
