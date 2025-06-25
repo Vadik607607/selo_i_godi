@@ -346,8 +346,7 @@ $1
   
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    function openModal(productName, max) {
+    function openModal(productName, max = 10) {
       document.getElementById('productName').value = productName;
       const quantityInput = document.querySelector('input[name="quantity"]');
       quantityInput.max = max;
@@ -355,37 +354,42 @@ $1
       document.getElementById('orderModal').style.display = 'flex';
     }
 
-    window.openModal = openModal;
-
-    window.closeModal = function () {
+    function closeModal() {
       document.getElementById('orderModal').style.display = 'none';
-    };
+    }
 
     document.getElementById('orderForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const formData = new FormData(this);
+      const product = this.product.value;
+      const fullname = this.fullname.value;
+      const phone = this.phone.value;
+      const quantity = this.quantity.value;
+      const address = this.address.value;
+      const message = this.message.value;
+
+      const content = `**Нове замовлення:**\n📦 **Продукт:** ${product}\n🔢 **Кількість:** ${quantity} кг\n👤 **Ім’я:** ${fullname}\n📞 **Телефон:** ${phone}\n📍 **Адреса:** ${address}${message ? `\n✏️ **Коментар:** ${message}` : ''}`;
+
+      const webhookUrl = "https://discord.com/api/webhooks/1387388932202696827/QZ8Uyc1YvTFzRzHIqe5S3VfVM3_NrtU_Y6AOdEG_K6NSR59rJRgw7tct2HyY5cWqj53h";
 
       try {
-        const res = await fetch('order.php', {
-          method: 'POST',
-          body: formData
+        const res = await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content })
         });
 
-        const text = await res.text();
-
-        if (res.ok && text.trim() === "OK") {
+        if (res.ok) {
           alert("Дякуємо! Ваше замовлення надіслано.");
           this.reset();
           closeModal();
         } else {
-          alert("Помилка при надсиланні: " + text);
+          alert("Помилка при надсиланні: " + res.statusText);
         }
       } catch (err) {
-        alert("Помилка з’єднання. Спробуйте ще раз.");
+        alert("Помилка з’єднання: " + err.message);
       }
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
